@@ -1,6 +1,13 @@
 const http = require('http');
 const fs = require('fs');
 
+/**
+ *
+ * The following snippet shows the basic way to create a server in node.js,
+ * which has the ability to listen to port: (8000) with ip: (127.0.0.1)
+ * and serve a html with the content change based on a data file
+ *
+ */
 // http.createServer((req, res) => {
 //     if (req.url === '/') {
 //         fs.readFile('./title.json', (err, data) => {
@@ -26,6 +33,11 @@ const fs = require('fs');
 //     }
 // }).listen(8000, '127.0.0.1');
 
+/**
+ *
+ * The following snippet shows how to use connecting functin to avoid callback hell
+ *
+ */
 http.createServer((req, res) => {
     getTitle(res);
 }).listen(8000, '127.0.0.1');
