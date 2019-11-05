@@ -31,7 +31,7 @@ http.createServer((req, res) => {
 }).listen(8000, '127.0.0.1');
 
 function getTitle(res) {
-    fs.readFile('./titles.json', (err, data) => {
+    fs.readFile('./title.json', (err, data) => {
         if (err) {
             hadError(err, res);
         } else {
