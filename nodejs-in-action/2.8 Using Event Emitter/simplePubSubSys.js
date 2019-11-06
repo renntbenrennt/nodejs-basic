@@ -25,6 +25,13 @@ channel.on('leave', function(id) {
 channel.on('shutdown', () => {
     channel.emit('broadcast', '', 'The server has shut down. \n');
     channel.removeAllListeners('broadcast');
+});
+
+channel.on('join', function(id, client) {
+    const welcome = `
+        Guests online: ${this.listeners('broadcast').length}
+    `;
+    client.write(`${welcome}\n`);
 })
 
 const server = net.createServer(client => {
@@ -46,7 +53,7 @@ const server = net.createServer(client => {
             channel.emit('shutdown');
         }
         channel.emit('broadcast', id, data);
-    })
+    });
 });
 
 server.listen(8888);
