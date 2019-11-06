@@ -12,7 +12,9 @@ class Watcher extends events.EventEmitter {
         fs.readdir(this.watchDir, (err, files) => {
             if (err) throw err;
             for (let index in files) {
-                this.emit('process', files[index]);
+                if (files[index] === 'the-file-you-drop-in-here-will-be-rename-and-move-to-done-folder.txt') {
+                    this.emit('process', files[index]);
+                }
             }
         });
     }
@@ -25,6 +27,9 @@ class Watcher extends events.EventEmitter {
 }
 
 // module.exports = Watcher;
+
+const watchDir = './watch';
+const processedDir = './done';
 
 const watcher = new Watcher(watchDir, processedDir);
 
