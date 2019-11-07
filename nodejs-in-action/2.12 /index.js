@@ -58,7 +58,7 @@ const tasks = [
 
 function next(err, result) {
     if (err) throw err;
-    const currentTask = task.shift();
+    const currentTask = tasks.shift();
     if (currentTask) {
         currentTask(result);
     }
