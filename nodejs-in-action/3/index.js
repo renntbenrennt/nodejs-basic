@@ -10,6 +10,11 @@ app.set('port', process.env.PORT || 3000);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(
+    '/css/bootstrap.css',
+    express.static('node_modules/bootstrap/dist/css/bootstrap.css')
+);
+
 app.get('/articles', (req, res, next) => {
     Article.all((err, articles) => {
         if (err) return next(err);
