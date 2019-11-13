@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server:dev": "webpack-dev-server --hot --inline --content-base dist/ --port 3001"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +20,6 @@
     "babel-preset-react": "^6.24.1",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^1.14.1"
+    "webpack-dev-server": "^3.9.0"
   }
 }
