@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+const validate = require('./middleware/validate');
 const entries = require('./routes/entries');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -40,5 +41,9 @@ app.use(function(err, req, res, next) {
 });
 
 app.get('/', entries.list);
+app.post('/post', 
+          validate.required('entry[title]'),
+          validate.lengthAbove('entry[title]', 4),
+          entries.submit);
 
 module.exports = app;
