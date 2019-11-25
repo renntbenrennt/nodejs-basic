@@ -42,8 +42,8 @@ app.use(function(err, req, res, next) {
 
 app.get('/', entries.list);
 app.post('/post', 
-          validate.required('entry[title]'),
-          validate.lengthAbove('entry[title]', 4),
-          entries.submit);
+         validate.required('entry[title]'),
+         validate.lengthAbove('entry[title]', 4),
+         entries.submit);
 
 module.exports = app;
