@@ -12,6 +12,7 @@ var usersRouter = require('./routes/users');
 const register = require('./routes/register');
 const messages = require('./middleware/messages');
 const login = require('./routes/login');
+const user = require('./middleware/user');
 
 var app = express();
 
@@ -31,6 +32,8 @@ app.use(session({
   saveUninitialized: true
 }));
 app.use(messages);
+
+app.use(user);
 
 // app.use('/', indexRouter);
 app.use('/users', usersRouter);
