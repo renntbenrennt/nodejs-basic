@@ -1,3 +1,5 @@
+const User = require('../models/user');
+
 exports.form = (reg, res) => {
     res.render('login', { title: 'Login' });
 };
