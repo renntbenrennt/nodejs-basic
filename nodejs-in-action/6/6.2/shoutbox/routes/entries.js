@@ -28,3 +28,12 @@ exports.submit = (req, res, next) => {
         res.redirect('/');
     });
 }
+
+entry.save(err => {
+    if (err) return next(err);
+    if (req.remoteUser) {
+        res.json({ message: 'Entry added.' });
+    } else {
+        res.redirect('/');
+    }
+});

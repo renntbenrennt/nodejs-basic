@@ -15,6 +15,7 @@
     "redis": "^2.8.0"
   },
   "devDependencies": {
+    "basic-auth": "^2.0.1",
     "bcrypt": "^3.0.7",
     "express-session": "^1.17.0"
   }

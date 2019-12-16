@@ -14,6 +14,9 @@ const messages = require('./middleware/messages');
 const login = require('./routes/login');
 const user = require('./middleware/user');
 
+const api = require('./routes/api');
+const Entry = require('../models/entry');
+
 var app = express();
 
 // view engine setup
@@ -33,6 +36,7 @@ app.use(session({
 }));
 app.use(messages);
 
+app.use('/api', api.auth);
 app.use(user);
 
 // app.use('/', indexRouter);
@@ -50,6 +54,10 @@ app.post('/register', register.submit);
 app.get('/login', login.form);
 app.post('/login', login.submit);
 app.get('/logout', login.logout);
+
+app.get('/api/user/:id', api.user);
+app.post('/api/entry', entries.submit);
+app.get('/api/entries/:page?', page(Entry.count), api.entries);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

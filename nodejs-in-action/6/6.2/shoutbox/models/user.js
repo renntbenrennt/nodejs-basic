@@ -80,6 +80,13 @@ class User {
             });
         });
     }
+
+    toJSON() {
+        return {
+            id: this.id,
+            name: this.name
+        };
+    }
 }
 
 module.exports = User;
