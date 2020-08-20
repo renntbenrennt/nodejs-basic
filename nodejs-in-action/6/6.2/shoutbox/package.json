@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "basic-auth": "^2.0.1",
-    "bcrypt": "^3.0.7",
+    "bcrypt": "^5.0.0",
     "express-session": "^1.17.0"
   }
 }
